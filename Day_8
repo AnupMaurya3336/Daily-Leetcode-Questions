@@ -1,0 +1,22 @@
+//989. Add to Array-Form of Integer
+
+
+class Solution {
+    public List<Integer> addToArrayForm(int[] num, int k) {
+
+        // isme k me last ka gigit add kerege
+
+        int i = num.length - 1;
+        List<Integer> ll = new ArrayList<>();
+        while (i >= 0 || k > 0) {
+            if (i >= 0) {
+                k += num[i];  // array ke last number k me add ker rhe hai
+                i--;
+            }
+            ll.add(k % 10);  //  digit ko add karege
+            k = k / 10;       // aur phir use k se delet ker dege
+        }
+           Collections.reverse(ll);    // hamara data reverse me add huaa huaa hai use reverse ker rhe hai
+           return ll;
+    }
+}
