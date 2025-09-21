@@ -1,0 +1,33 @@
+// 219. Contains Duplicate II  index ka distance k se kam ho
+
+class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        // for(int i=0;i<nums.length;i++){
+        //     for(int j=1+i;j<nums.length;j++){
+        //         if(nums[i]==nums[j]){
+        //             if(Math.abs(i-j) <= k){
+        //                 return true;
+        //             }
+        //         }
+        //     }
+        // }
+        // return false;
+
+        // this is write but give TLE(Time Limit Exceeded)
+
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int value = nums[i];
+            if (map.containsKey(value)) {
+                int preindex = map.get(value);     //last vala index find ker rhe hai
+                if (i - preindex <= k) {
+                    return true;
+                }
+            }
+            map.put(value, i);
+        }
+
+        return false;
+
+    }
+}
