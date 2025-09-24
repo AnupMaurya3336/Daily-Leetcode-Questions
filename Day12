@@ -1,0 +1,20 @@
+// 55. Jump Game
+class Solution {
+    public boolean canJump(int[] nums) {
+        int n=nums.length;
+        if(n == 1){
+            return true;
+        }
+        int first=nums[0];
+        int last=nums[n-1];
+
+        int maxReach = first;
+        for(int i=1;i<n;i++){  
+            if (i > maxReach) {
+                return false;
+            }
+            maxReach = Math.max(maxReach, i + nums[i]);
+        }
+        return true;
+    }
+}
