@@ -1,0 +1,20 @@
+520. Detect Capital
+class Solution {
+    public boolean detectCapitalUse(String word) {
+        String s=word;
+        String a=word.toUpperCase();
+        String b=word.toLowerCase();
+        if(s.equals(a)){
+            return true;
+        }
+        else if(s.equals(b)){
+            return true;
+          }
+        else if(Character.isUpperCase(s.charAt(0)) && s.substring(1).equals(s.substring(1).toLowerCase())){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}
