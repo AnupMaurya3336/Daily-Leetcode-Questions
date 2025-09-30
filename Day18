@@ -1,0 +1,47 @@
+// 41. First Missing Positive
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+
+         // correct code  submit code not give TLE   but tc==nlogn
+
+        // Arrays.sort(nums);
+        // int i = 0;
+        // int j = 0;
+        // while(i<nums.length){   //loop chalaya length tak
+        //     if(nums[i] <1){     // valur negative ne hai to  
+        //         i++;
+        //     }
+        //     else if(j+1 == nums[i]){     // ager equal hai to
+        //         i++;
+        //         j++;
+        //     }
+        //     else if(nums[i]==j){       // ager dublicat value aa jay to
+        //         i++;
+        //     }
+        //     else {
+        //         return j+1;        //  nhi to j+1 ko return ker do
+        //     }
+        // }
+        // return j+1;
+
+
+// type second
+
+        HashSet<Integer> set=new HashSet<>();  //contain uniqe value
+
+        for(int i=0;i<nums.length;i++){    //add value
+            set.add(nums[i]);
+        }
+        int max=Integer.MAX_VALUE;
+        // int max=Integer.MAX_VALUE;    ise bhi likha sakte hai
+
+
+        for(int i=1;i<max;i++){
+            if(!set.contains(i)){    //if i hai to jane do  ager nhi hai return 1 ker do
+                return i;
+            }
+
+        }
+        return max;   // nhi to jo last hain use return ker do
+    }
+}
