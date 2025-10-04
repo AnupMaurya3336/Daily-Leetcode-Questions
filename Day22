@@ -1,0 +1,16 @@
+// 2996. Smallest Missing Integer Greater Than Sequential Prefix Sum
+class Solution {
+    public int missingInteger(int[] nums) {
+        int sum =nums[0] ;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1] + 1) {
+                sum = sum + nums[i];
+            } else {
+                break;
+            }
+        }
+…            if (!found) return sum; 
+            sum++;
+        }
+    }
+}
