@@ -1,4 +1,4 @@
-// 3024. Type of Triangle
+//   3024. Type of Triangle
 class Solution {
     public String triangleType(int[] nums) {
         if (nums[0] == nums[1] && nums[1] == nums[2]) {
