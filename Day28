@@ -1,0 +1,21 @@
+// 1539. Kth Missing Positive Number
+
+class Solution {
+    public int findKthPositive(int[] arr, int k) {
+        int num=1;
+        int i=0;
+        while(i<arr.length && k>0){
+            if(arr[i]==num){
+                i++;
+            }else{
+                k--;
+            }
+            num++;
+        }
+        while(k !=0){   //ager k rah gya tab ke liye
+            num++;
+            k--;
+        }
+        return num-1;
+    }
+}
