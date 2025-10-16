@@ -1,0 +1,34 @@
+// 349. Intersection of Two Arrays
+
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        
+        ArrayList<Integer> list=new ArrayList<>();
+
+        HashSet<Integer> set=new HashSet<>();
+        for(int val : nums1){
+            set.add(val);
+        }
+        for(int value : nums2){
+            if(set.contains(value)){
+                list.add(value);
+            }
+        }
+        int l=list.size();
+        set.clear();
+
+      
+        for(int i=0;i<l;i++){
+            set.add(list.get(i));
+            
+        }
+          int [] num=new int[set.size()];
+          int i =0;
+          for(int val : set ) {
+            num[i] = val;
+            i++;
+          }
+        return num;
+        
+    }
+}
