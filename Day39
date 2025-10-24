@@ -1,0 +1,29 @@
+// 344. Reverse String
+
+class Solution {
+    public void reverseString(char[] s) {
+
+        // for(int i=0;i<s.length/2;i++){
+        //     char temp=s[i];              // char hai to char likhege
+        //     s[i]=s[s.length-i-1];
+        //     s[s.length-1-i]=temp;
+        // }
+        // // return s;          void hai to return nhi kerna hai
+        
+
+
+
+       // type 2
+
+        int left=0;             //two pointer aproch hai
+        int right=s.length-1;
+        while(left<right){               //loop ko kha stop kerna hai vo  bata rha hai
+            char swap=s[right];          // swap ho rha hai
+            s[right--]=s[left];           // aur usi me decriment and increment bhi ho rha hai
+           s[left++]=swap;                    
+            
+        }
+
+
+    }
+}
