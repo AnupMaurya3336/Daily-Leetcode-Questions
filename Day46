@@ -1,5 +1,7 @@
 // 3370. Smallest Number With All Set Bits
 
+
+//  Both are correct
 /* class Solution {
     public int smallestNumber(int n) {
         // int ans=1;
