@@ -1,0 +1,31 @@
+// 3370. Smallest Number With All Set Bits
+
+/* class Solution {
+    public int smallestNumber(int n) {
+        // int ans=1;
+        int count =0;
+        while(n>0){
+            n=n/2;
+            count+=1;
+        }
+        //  for(int i=0;i<count;i++){
+        //     ans=ans*2;
+        //  }
+        int ans=(int)Math.pow(2,count);
+        int a=ans-1;
+        return a;
+        
+    }
+} */
+
+
+class Solution {
+    public int smallestNumber(int n) {
+        int count =0;
+        while(n>0){
+            n=n/2;
+            count+=1;
+        }
+        return (int)Math.pow(2,count)-1;
+    }
+}
