@@ -1,0 +1,33 @@
+//206. Reverse Linked List
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+
+        // cp vale sir ne same karaya hai
+        
+        // isme direction change ker ke return ker dege matalb jo arroe 4 se 5 ko dekh rha tha usi arroe ko 5 se 4    
+        // ko dekha de ge aur lasr se return ker dege
+        // 1->2->3->4->5    change    1<-2<-3<-4<-5   aysa ker ke 5 se return ker diya hai
+
+        ListNode prev = null;
+        ListNode curr = head;
+        while(curr != null){
+            ListNode temp = curr.next;   ///type one
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        return prev;
+        
+    }
+}
