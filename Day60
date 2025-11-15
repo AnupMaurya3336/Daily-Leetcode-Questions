@@ -1,0 +1,17 @@
+// 2806. Account Balance After Rounded Purchase
+
+class Solution {
+    public int accountBalanceAfterPurchase(int amount) {
+        int last=amount%10;
+        int ans=0;
+        if(last<=4){
+            ans=100-(amount-last);
+
+        }else{
+            ans=100-(amount+(10-last));
+        }
+        return ans;
+
+        
+    }
+}
