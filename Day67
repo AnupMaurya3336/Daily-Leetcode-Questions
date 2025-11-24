@@ -1,50 +1,56 @@
 // 121. Best Time to Buy and Sell Stock
 
-
 class Solution {
     public int maxProfit(int[] arr1) {
-    //    int size = arr1.length;
-    //     int [] arr2=new int[size];
-    //     arr2[size-1] = arr1[size-1];
-    //     for(int i=size-2;i>=0;i--){
-    //         if(arr2[i+1] > arr1[i]){
-    //             arr2[i]=arr2[i+1];
-    //         }
-    //         else{
-    //             arr2[i]=arr1[i];
-    //         }
-    //     }
-    //     int max= Integer.MIN_VALUE;
-    //     for(int i=0;i<size;i++){
-    //         int diff=arr2[i]-arr1[i];
-    //         if(diff>max){
-    //             max=diff;
-    //         }
-    //     }
-    //     return max; 
-
+        //    int size = arr1.length;
+        //     int [] arr2=new int[size];
+        //     arr2[size-1] = arr1[size-1];
+        //     for(int i=size-2;i>=0;i--){
+        //         if(arr2[i+1] > arr1[i]){
+        //             arr2[i]=arr2[i+1];
+        //         }
+        //         else{
+        //             arr2[i]=arr1[i];
+        //         }
+        //     }
+        //     int max= Integer.MIN_VALUE;
+        //     for(int i=0;i<size;i++){
+        //         int diff=arr2[i]-arr1[i];
+        //         if(diff>max){
+        //             max=diff;
+        //         }
+        //     }
+        //     return max; 
 
         // // /type 2 question ho gya haio ye type two lika rha hu cp vale sir
-        int []left=new int[arr1.length];
-        int [] right=new int[arr1.length];
-        left[0]=arr1[0];
-        right[arr1.length-1]=arr1[arr1.length-1];
+        // int []left=new int[arr1.length];
+        // int [] right=new int[arr1.length];
+        // left[0]=arr1[0];
+        // right[arr1.length-1]=arr1[arr1.length-1];
 
-        for(int i=1;i<arr1.length;i++){
-            left[i]=Math.min(left[i-1],arr1[i]);
+        // for(int i=1;i<arr1.length;i++){
+        //     left[i]=Math.min(left[i-1],arr1[i]);
+        // }
+        // for(int i=arr1.length-2;i>=0;i--){
+        //     right[i]=Math.max(right[i+1],arr1[i]);
+        // }
+        // int max=0;
+        // for(int i=0;i<arr1.length;i++){
+        //     max=Math.max(max,right[i]-left[i]);
+        // }
+        // return max;
+
+
+        // cp vale sir ne kraya hai optimoze solution
+        int minprice = Integer.MAX_VALUE;
+        int maxprofit = 0;
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] < minprice) {
+                minprice = arr1[i];
+            }
+            maxprofit = Math.max(arr1[i] - minprice, maxprofit);
         }
-        for(int i=arr1.length-2;i>=0;i--){
-            right[i]=Math.max(right[i+1],arr1[i]);
-        }
-        int max=0;
-        for(int i=0;i<arr1.length;i++){
-            max=Math.max(max,right[i]-left[i]);
-        }
-        return max;
-
-
-
-
+        return maxprofit;
 
     }
 }
