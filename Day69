@@ -1,0 +1,27 @@
+//   3005. Count Elements With Maximum Frequency
+
+class Solution {
+    public int maxFrequencyElements(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        
+        
+        for (int n : nums) {
+            map.put(n, map.getOrDefault(n, 0) + 1);    // frequency find ker rhe hai
+        }
+
+        int maxFreq = 0;
+        for (int freq : map.values()) {                   // max frequency find ker rhe hai
+            maxFreq = Math.max(maxFreq, freq);
+        }
+
+                                    // count elements having max frequency
+        int count = 0;
+        for (int freq : map.values()) {
+            if (freq == maxFreq) {
+                count++;
+            }
+        }
+ 
+        return count * maxFreq;
+    }
+}
