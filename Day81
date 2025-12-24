@@ -1,0 +1,22 @@
+3074. Apple Redistribution into Boxes
+
+class Solution {
+    public int minimumBoxes(int[] apple, int[] capacity) {
+        int sum=0;
+        for(int i=0;i<apple.length;i++){
+            sum+=apple[i];
+        }
+        Arrays.sort(capacity);
+        int i=0;
+        int l=capacity.length;
+        while(sum>0){
+                sum= sum-capacity[l-1];
+            
+            i++;
+            l--;
+
+        }
+        return i;
+        
+    }
+}
