@@ -1,0 +1,26 @@
+// 17. Letter Combinations of a Phone Number
+
+class Solution {
+        static String [] map={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+
+    public List<String> letterCombinations(String digits) {
+        
+        List<String>ll=new ArrayList<>();
+        combination(digits,"",ll);
+        return ll;
+        
+    }
+    public static void combination(String s,String ans,List<String>ll){
+        if(s.length() ==0){
+            // System.out.println(ans+" ");
+            ll.add(ans);
+            return;
+        }
+          char ch=s.charAt(0);
+          int num=ch-'0';
+          String press=map[num];
+          for(int i=0;i<press.length();i++){
+            combination(s.substring(1), ans +press.charAt(i),ll);
+          }
+    }
+}
