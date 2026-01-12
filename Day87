@@ -1,0 +1,58 @@
+//234. Palindrome Linked List
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    
+    public ListNode reverse(ListNode head){
+        ListNode prev =null;
+        ListNode curr=head;
+        while(curr != null){
+            ListNode next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        return prev;
+    }
+
+    public ListNode findMiddle(ListNode head){  // ak pointer ko 1 se aur dusre pointer 2 ko se badayege
+        ListNode hare=head; // 2 step
+        ListNode turtle =head; // 1 step
+        while(hare.next != null && hare.next.next !=null){
+            hare=hare.next.next;
+            turtle=turtle.next;
+        }
+        return turtle;
+    }
+
+
+    public boolean isPalindrome(ListNode head) {
+        if(head==null && head.next==null){
+            return true;
+        }
+        //find middle of linkedList
+        ListNode middle =findMiddle(head); // ye function call hai
+        ListNode SecondHalfStart=reverse(middle.next);//ye bhi function call hai
+
+        //yha se compair ker rhe hai
+        ListNode firstHalfStart=head; 
+        while(SecondHalfStart !=null){
+            if(firstHalfStart.val != SecondHalfStart.val){ // yha start aur second half ke start se compair ker rhe hai
+                    return false;
+            }
+            firstHalfStart=firstHalfStart.next;  // yha her baar next value ker de rhe hai
+            SecondHalfStart=SecondHalfStart.next;
+        }
+        return true;
+        
+    }
+}
