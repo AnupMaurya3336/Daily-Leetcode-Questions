@@ -1,0 +1,19 @@
+//557. Reverse Words in a String III
+
+class Solution {
+    public String reverseWords(String s) {
+        int l=s.length();
+
+        String [] arr=s.split("\\s+");
+        StringBuilder str=new StringBuilder();
+
+        for(int i=0;i<arr.length;i++){
+             StringBuilder temp=new StringBuilder(arr[i]);
+             str.append(temp.reverse());
+             str.append(" ");
+        }
+        return str.toString().trim();
+    }
+}
+
+ 
