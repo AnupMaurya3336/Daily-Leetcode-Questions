@@ -1,0 +1,26 @@
+// 541. Reverse String II
+
+class Solution {
+    public String reverseStr(String s, int k) {
+        boolean flag = true;
+        StringBuilder ans = new StringBuilder();
+        int n = s.length();
+        int pair = (int) Math.ceil((float) n / k);
+        int idx = 0;
+
+        for (int i = 0; i < pair; i++) {
+           k = Math.min(k, n - idx);
+            String part = s.substring(idx, idx + k);
+            StringBuilder temp = new StringBuilder(part);
+            if (flag) {
+                ans.append(temp.reverse());
+            } else {
+                ans.append(temp);
+            }
+            flag = !flag;
+            idx += k;
+        }
+
+        return ans.toString();
+    }
+}
