@@ -1,0 +1,23 @@
+//1984. Minimum Difference Between Highest and Lowest of K Scores
+
+
+class Solution {
+    public int minimumDifference(int[] nums, int k) {
+        int n=nums.length;
+        Arrays.sort(nums);
+
+        int minDiff=Integer.MAX_VALUE;
+
+        int i=0;
+        int j=k-1;
+        while(j<n){
+            int minEl=nums[i];
+            int maxEl=nums[j];
+
+            minDiff=Math.min(minDiff,maxEl-minEl);
+            i++;
+            j++;
+        }
+        return minDiff;  
+    }
+}
