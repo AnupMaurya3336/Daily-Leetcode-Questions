@@ -1,0 +1,50 @@
+//1552. Magnetic Force Between Two Balls
+
+// class Solution {
+//     public int maxDistance(int[] position, int m) {
+        
+//     }
+// }
+
+class Solution {
+    public int maxDistance(int[] stalls, int k) {
+        // code here
+        Arrays.sort(stalls);
+        int n=stalls.length;
+        int max=stalls[n-1]-stalls[0];
+        int ans=-1;
+        // for(int i=1;i<=max;i++){
+        //     int c=placeCow(stalls,i);
+        //     if(c>=k){
+        //         ans=i;
+        //     }
+        //     else break;
+        // }
+        int start=1;
+        int end=max;
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            int c=placeCow(stalls,mid);
+            if(c>=k){
+                ans=mid;
+                start=mid+1;
+            }else{
+                end=mid-1;
+            }
+        }
+        return ans;
+    }
+    
+    
+    int placeCow(int stalls [] ,int d){
+        int c=1;
+        int p=stalls[0];
+        for(int i=1; i<stalls.length;i++)
+           if(stalls[i]-p >=d){
+            c++;
+            p=stalls[i];
+            
+        }
+        return c;
+    }
+}
