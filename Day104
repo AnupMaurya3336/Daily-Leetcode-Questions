@@ -1,0 +1,18 @@
+// 744. Find Smallest Letter Greater Than Target
+
+class Solution {
+    public char nextGreatestLetter(char[] letters, char target) {
+        int low=0;
+        int heigh=letters.length-1;
+        while(low<=heigh){
+            int mid=low+(heigh-low)/2;
+            if(letters[mid]<=target){
+                low=mid+1;
+            }else{
+                heigh=mid-1;
+            }
+        }
+
+         return letters[low % letters.length];
+    }
+}
