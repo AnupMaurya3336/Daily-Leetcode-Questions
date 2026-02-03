@@ -1,0 +1,35 @@
+// 3637.Trionic Array I
+
+
+class Solution {
+    public boolean isTrionic(int[] nums) {
+        int n=nums.length;
+        if(n<3){
+            return false;
+        }
+
+        int p=-1;
+        int q=-1;
+
+        int i=0;
+        while(i+1<n && nums[i]<nums[i+1]){
+                p=i+1;
+                i++;
+        }
+        if(p<=0)return false;
+        while(i+1<n && nums[i]> nums[i+1]){
+                q=i+1;
+                i++;
+        }
+
+        if(q<=p)return false;
+         if (i == n-1) return false;
+
+        while(i+1<n){
+            if (nums[i] >= nums[i + 1]) return false;
+            i++;
+        }
+        return true;
+         
+    }
+}
