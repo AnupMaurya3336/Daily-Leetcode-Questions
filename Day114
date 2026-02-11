@@ -1,24 +1,46 @@
 // 268. Missing Number
 
+// class Solution {
+//     public int missingNumber(int[] nums) {
+//         int n=nums.length;
+//         int sum=0;
+//         for(int i=0;i<n;i++){
+//             sum+=nums[i];
+//         }
+//         int ans=0;
+//         for(int i=0;i<=n;i++){
+//             ans+=i;
+//         }
+//         return ans-sum;
+
+//     }
+// }
+
+// class Solution {
+//     public int missingNumber(int[] nums) {
+//         int n=nums.length;
+//           int xor=n;
+//          for(int i=0;i<n;i++){
+//             xor^=i;
+//             xor^=nums[i];
+//          }
+//          return xor;
+
+//     }
+// }
 
 class Solution {
     public int missingNumber(int[] nums) {
         int n=nums.length;
-        // int sum=0;
-        // for(int i=0;i<n;i++){
-        //     sum+=nums[i];
-        // }
-        // int ans=0;
-        // for(int i=0;i<=n;i++){
-        //     ans+=i;
-        // }
-        // return ans-sum;
-
-         int xor=n;
-         for(int i=0;i<n;i++){
-            xor^=i;
-            xor^=nums[i];
-         }
-         return xor;
+        HashSet<Integer> set=new HashSet<>();
+        for(int i:nums){
+            set.add(i);
+        }
+        for(int i=0;i<=n;i++){
+            if(!set.contains(i)){
+                return i;
+            }
+        }
+        return -1;
     }
 }
