@@ -1,0 +1,26 @@
+// 762. Prime Number of Set Bits in Binary Representation
+
+class Solution {
+    public static int prime(int num){
+        int count=0;
+        for(int i=1;i<=num;i++){
+            if(num%i==0)count++;
+        }
+        if(count==2){
+            return 1;
+        }else{
+            return 0;
+        }    
+    }
+    public int countPrimeSetBits(int left, int right) {
+        int count=0;
+        for(int i=left;i<=right;i++){
+            // String a=Integer.toBinaryString(i);
+            int num=Integer.bitCount(i);
+            int ans=prime(num);
+            if(ans==1)count++;
+        }
+        return count;
+        
+    }
+}
