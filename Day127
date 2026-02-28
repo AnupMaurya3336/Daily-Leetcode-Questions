@@ -1,0 +1,13 @@
+//1680. Concatenation of Consecutive Binary Numbers
+
+class Solution {
+    public int concatenatedBinary(int n) {
+        long result=0;
+        int m=1000000007;
+        for(int i=1;i<=n;i++){
+            int digit =Integer.toBinaryString(i).length();
+            result=((result << digit)+i)%m;
+        }
+        return (int)result; 
+    }
+}
