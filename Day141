@@ -1,0 +1,21 @@
+// 209. Minimum Size Subarray Sum
+
+
+
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+       int count=0;
+       int min=Integer.MAX_VALUE;
+       int sum=0;
+       int s=0;
+       for(int e=0;e<nums.length;e++){
+            sum+=nums[e];
+            while(sum>=target){          //sliding window (variable size) se kiya hai
+                min=Math.min(min,e-s+1);
+                sum-=nums[s++];
+            }
+       }
+        return min == Integer.MAX_VALUE ? 0 : min;
+   
+    }
+}
