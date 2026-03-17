@@ -1,0 +1,48 @@
+// 1727. Largest Submatrix With Rearrangements
+
+
+import java.util.*;
+class Solution {
+    public int largestSubmatrix(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int result = 0;
+
+        for (int row = 0; row < m; row++) {
+
+            // Step 1: Build heights (same as C++)
+            for (int col = 0; col < n; col++) {
+                if (matrix[row][col] == 1 && row > 0) {
+                    matrix[row][col] += matrix[row - 1][col];
+                }
+            }
+
+            // Step 2: Copy current row
+            int[] currRow = Arrays.copyOf(matrix[row], n);
+
+            // Step 3: Sort in descending order
+            Arrays.sort(currRow);
+            reverse(currRow); // Java me descending ke liye reverse karna padega
+
+            // Step 4: Calculate max area
+            for (int col = 0; col < n; col++) {
+                int base = col + 1;
+                int height = currRow[col];
+                result = Math.max(result, base * height);
+            }
+        }
+
+        return result;
+    }
+    // Helper function to reverse array
+    private void reverse(int[] arr) {
+        int i = 0, j = arr.length - 1;
+        while (i < j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+    }
+}
