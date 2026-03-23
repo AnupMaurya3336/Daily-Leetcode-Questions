@@ -1,0 +1,57 @@
+//  1047. Remove All Adjacent Duplicates In String
+
+
+
+class Solution {
+    public String removeDuplicates(String s) {
+
+// all  correct
+
+        
+
+        Stack<Character> st=new Stack<>();
+        
+        for(int i=0;i<s.length();i++){
+            if(!st.isEmpty() && st.peek() ==s.charAt(i)){
+                st.pop();
+            }else{
+                st.push(s.charAt(i));
+            }
+        }
+        StringBuilder sb=new StringBuilder(); //direct stack ko string me convert nhi ker sakte hai 
+        for(char c :st){         //ya per foreach loop se kiya hai to reverse nhi kera hoga 
+            sb.append(c);
+        }
+        return sb.toString();
+
+
+        
+        /*
+
+
+        String ns="";
+        for(char ch:s.toCharArray()){
+            if(ns.length() >0 &&ns.charAt(ns.length()-1)==ch){
+                ns=ns.substring(0,ns.length()-1);
+            }else{
+                ns+=ch;
+            }
+        }
+        return ns;
+
+
+        */
+
+/*
+         StringBuilder ns=new StringBuilder();
+        for(char ch:s.toCharArray()){
+            if(ns.length() >0 &&ns.charAt(ns.length()-1)==ch){
+                ns.deleteCharAt(ns.length()-1);
+            }else{
+                ns.append(ch);
+            }
+        }
+        return ns.toString();
+        */
+    }
+}
