@@ -1,0 +1,23 @@
+// 215. Kth Largest Element in an Array
+
+
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        /*
+        Arrays.sort(nums);
+        return nums[nums.length-k];
+        */
+        int n=nums.length;
+        //PriorityQueue<Integer> pq=new PriorityQueue<>((i1,i2)-> i2,i1);//by defalt (decending me sort hoga) max me hota hai
+
+        PriorityQueue<Integer> pq=new PriorityQueue<>();  // by defalt min me hota hai
+        for(int i=0;i<n;i++){  //O(n)
+            pq.add(nums[i]);   //log(k)
+            if(i>=k){
+                pq.poll();  //remove kerne ke liye == log(n)
+            }
+        }
+        return pq.peek();
+        
+    }
+}
