@@ -1,0 +1,17 @@
+//168. Excel Sheet Column Title
+
+
+class Solution {
+    public String convertToTitle(int col) {
+        String s="";
+        while(col>0){
+            col--;   //starting me hi ak kam ker de rha hu 
+            int rem = col % 26;
+
+            s = (char)(rem + 'A') + s; // no need to reverse
+            col = col / 26;
+        }
+        return s;
+        
+    }
+}
