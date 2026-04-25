@@ -1,0 +1,38 @@
+//404. Sum of Left Leaves
+
+
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int sumOfLeftLeaves(TreeNode root) {
+        boolean isleft=false;
+        lefty(root,isleft);
+        return sum;
+        
+    }
+    int sum=0;
+    public void lefty(TreeNode root , boolean isleft){
+        if(root ==null)return;
+        if(root.left==null && root.right==null && isleft==true){
+            sum+=root.val;
+            return;
+        }
+        lefty(root.left,true);
+        lefty(root.right,false);
+
+    }
+}
