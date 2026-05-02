@@ -1,0 +1,27 @@
+//788. Rotated Digits
+
+
+
+
+class Solution {
+    public int rotatedDigits(int n) {
+        int count=0;
+        for(int i=1;i<=n;i++){
+            if(fun(i)){
+                count++;
+            }
+        }
+        return count;
+        
+    }
+    boolean fun(int n){
+        boolean isvalid=false;
+        while(n>0){
+            int r=n%10;
+            if(r==3 || r==4 || r==7)return false;
+            if(r==2 || r==5 || r==6 || r==9)isvalid=true;
+            n=n/10;
+        }
+        return isvalid;
+    }
+}
