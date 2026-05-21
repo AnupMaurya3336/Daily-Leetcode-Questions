@@ -1,0 +1,22 @@
+// 1232. Check If It Is a Straight Line
+
+
+class Solution {
+    public boolean checkStraightLine(int[][] cord) {
+        int n=cord.length;
+        int y=cord[1][1]-cord[0][1]; //y2-y1
+        int x=cord[1][0]-cord[0][0];  //x2-x1
+
+        for(int i=2;i<n;i++){
+            int yi=cord[i][1]-cord[0][1];
+            int xi=cord[i][0]-cord[0][0];
+
+            if(yi*x != xi*y){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+//m=y2-y1/x2-x1;
