@@ -1,0 +1,31 @@
+// 3754. Concatenate Non-Zero Digits and Multiply by Sum I
+
+
+
+
+class Solution {
+    public long sumAndMultiply(int n) {
+        long number=0;
+        long sum=0;
+        while(n>0){
+            long rem=n%10;
+            if(rem !=0){
+                number=number*10+rem;
+                sum+=rem;
+            }
+            n/=10;
+        }
+        return reverse(number)*sum;
+
+        
+    }
+    long reverse(long num){
+        long ans=0;
+        while(num>0){
+            long rem=num%10;
+            ans=ans*10+rem;
+            num/=10;
+        }
+        return ans;
+    }
+}
