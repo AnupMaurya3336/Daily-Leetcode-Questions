@@ -1,0 +1,70 @@
+// 543. Diameter of Binary Tree
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+// class Solution {
+//     private static int compute(TreeNode node ,int[] maxD ){
+//         if(node==null) return 0;
+//         int lh=compute(node.left,maxD);
+//         int rh=compute(node.right,maxD);
+
+//         maxD[0]=Math.max(maxD[0],lh+rh);
+//         return  1+Math.max(lh,rh);
+
+//     }
+//     public int diameterOfBinaryTree(TreeNode root) {
+//         int [] maxD= new int [1];
+//         compute(root,maxD);
+//         return maxD[0];
+//     }
+
+// }
+
+
+//monu bhaiya
+class Solution {
+    public int diameterOfBinaryTree(TreeNode root) {
+        return Diameter(root);
+    
+    } 
+    public int Diameter(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        int ld=Diameter(root.left);
+        int rd=Diameter(root.right);
+        int a=hight(root.left)+ hight(root.right)+2;
+        return Math.max(a,Math.max(ld,rd));
+
+    }
+    public int hight(TreeNode root){
+        if(root==null){
+            return -1;
+        }
+        int l=hight(root.left);
+        int r=hight(root.right);
+        return Math.max(l,r)+1;
+    }
+}
+
+
+
+
+
+
+
+
+
